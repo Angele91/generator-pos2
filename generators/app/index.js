@@ -19,9 +19,9 @@ module.exports = class extends Generator {
 
   finishing() {
     if (this.props.generator === "Component") {
-      this.env.run("pos2:component");
+      this.env.run("pos-2:component");
     } else if (this.props.generator === "Action / User Action") {
-      this.env.run("pos2:action");
+      this.env.run("pos-2:action");
     }
   }
 };
