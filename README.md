@@ -8,7 +8,7 @@ First, install [Yeoman](http://yeoman.io) and generator-pos-2 using [npm](https:
 
 ```bash
 npm install -g yo
-npm install -g @angeleduardo/generator-pos-2
+npm install -g generator-pos-2
 ```
 
 Then generate your new project:

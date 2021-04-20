@@ -1,5 +1,5 @@
 {
-  "name": "@angeleduardo/generator-pos-2",
+  "name": "generator-pos-2",
   "version": "1.0.0",
   "description": "A yeoman generator for POS2 components, actions and user actions",
   "homepage": "https://github.com/Angele91/generator-pos2",
