@@ -1,4 +1,5 @@
 # generator-pos-2 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+
 > A yeoman generator for POS2 components, actions and user actions
 
 ## Installation
@@ -7,7 +8,7 @@ First, install [Yeoman](http://yeoman.io) and generator-pos-2 using [npm](https:
 
 ```bash
 npm install -g yo
-npm install -g generator-pos-2
+npm install -g @angeleduardo/generator-pos-2
 ```
 
 Then generate your new project:
@@ -16,17 +17,21 @@ Then generate your new project:
 yo pos-2
 ```
 
-## Getting To Know Yeoman
+To generate components:
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+```bash
+yo pos-2:component
+```
+
+Or to generate actions:
+
+```bash
+yo pos-2:action
+```
 
 ## License
 
 Apache-2.0 © [Angel Gonzalez]()
-
 
 [npm-image]: https://badge.fury.io/js/generator-pos-2.svg
 [npm-url]: https://npmjs.org/package/generator-pos-2

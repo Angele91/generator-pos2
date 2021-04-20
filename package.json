@@ -2,18 +2,13 @@
   "name": "@angeleduardo/generator-pos-2",
   "version": "1.0.0",
   "description": "A yeoman generator for POS2 components, actions and user actions",
-  "homepage": "",
-  "author": {
-    "name": "Angel Gonzalez",
-    "email": "angele.gm91@gmail.com",
-    "url": ""
-  },
+  "homepage": "https://github.com/Angele91/generator-pos2",
+  "author": "Angel Gonzalez <angele.gm91@gmail.com> (https://github.com/Angele91/generator-pos2)",
   "files": [
     "generators"
   ],
   "main": "generators/index.js",
   "keywords": [
-    "",
     "yeoman-generator"
   ],
   "devDependencies": {
@@ -76,6 +71,12 @@
     "pretest": "eslint .",
     "test": "jest"
   },
-  "repository": "angele91/generator-pos-2",
-  "license": "Apache-2.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angele91/generator-pos-2.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/angele91/generator-pos-2/issues"
+  }
 }
