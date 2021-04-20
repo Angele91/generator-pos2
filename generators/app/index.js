@@ -1,8 +1,6 @@
 "use strict";
 const Generator = require("yeoman-generator");
 
-var yeoman = require("yeoman-environment");
-var env = yeoman.createEnv();
 module.exports = class extends Generator {
   prompting() {
     const prompts = [
@@ -20,14 +18,10 @@ module.exports = class extends Generator {
   }
 
   finishing() {
-    let namespace = "";
     if (this.props.generator === "Component") {
-      namespace = ":component";
+      this.env.run("pos2:component");
     } else if (this.props.generator === "Action / User Action") {
-      namespace = ":action";
+      this.env.run("pos2:action");
     }
-
-    const generator = env.create(`pos-2${namespace}`);
-    generator.run();
   }
 };
