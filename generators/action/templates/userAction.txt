@@ -1,0 +1,27 @@
+/*
+ ************************************************************************************
+ * Copyright (C) <%= copyrightYear %> Openbravo S.L.U.
+ * Licensed under the Openbravo Commercial License version 1.0
+ * You may obtain a copy of the License at http://www.openbravo.com/legal/obcl.html
+ * or in the legal folder of this module distribution.
+ ************************************************************************************
+ */
+
+import OB from 'org.openbravo.core2/src/core/OB';
+import <%= userActionType %> from 'org.openbravo.core2/src/core/user-action/<%= userActionType %>';
+
+/**
+ * @name <%= actionNamePascalCase %>UserAction
+ * @description <%= description %>
+ */
+class <%= actionNamePascalCase %>UserAction extends <%= userActionType %> {
+  constructor() {
+    super('<%= prefix %>_<%= actionNamePascalCase %>');
+  }
+
+  async action(payload) {
+    await OB.App.State.UI.<%= actionName %>(payload);
+  }
+}
+
+export default <%= actionName %>UserAction;

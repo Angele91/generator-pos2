@@ -1,0 +1,50 @@
+/*
+ ************************************************************************************
+ * Copyright (C) <%= copyrightYear %> Openbravo S.L.U.
+ * Licensed under the Openbravo Commercial License version 1.0
+ * You may obtain a copy of the License at http://www.openbravo.com/legal/obcl.html
+ * or in the legal folder of this module distribution.
+ ************************************************************************************
+ */
+
+import OB from "org.openbravo.core2/src/core/OB";
+import Registry from "org.openbravo.core2/src/core/Registry";
+import createStoreStories from "org.openbravo.core2/src/core/user-action/__mock__/createStoreStories";
+import UserActionFence from "org.openbravo.core2/src/core/user-action/__mock__/UserActionFence";
+import ConfigurationSet from "org.openbravo.core2/src/core/ConfigurationSet";
+import <%= actionNamePascalCase %>UserAction from "../user-actions/<%= actionNamePascalCase %>UserAction";
+import <%= actionName %> from "../actions/<%= actionName %>";
+
+const registerActions = () => {
+  Registry.reset();
+  Registry.setCurrentlyRegisteringModule({
+    javaPackage: "<%= package %>",
+    dbPrefix: ["<%= prefix %>"]
+  });
+  Registry.registerUserAction(UserActionFence(<%= actionNamePascalCase %>UserAction));
+};
+
+const mockFn = jest.fn().mockImplementation(<%= actionName %>);
+
+describe("<%= actionNamePascalCase %>UserAction", () => {
+  beforeAll(() => {
+    createStoreStories([
+      {
+        model: "<%= modelName %>",
+        actions: {
+          <%= actionName %>: mockFn
+        }
+      }
+    ]);
+    registerActions();
+  });
+
+  beforeEach(() => {
+    mockFn.mockClear();
+  });
+
+  it("should execute the state action", async () => {
+    await Registry.getUserAction("<%= prefix %>_<%= actionNamePascalCase %>").launch();
+    expect(mockFn).toHaveBeenCalledTimes(1);
+  });
+});
