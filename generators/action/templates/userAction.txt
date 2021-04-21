@@ -24,4 +24,4 @@ class <%= actionNamePascalCase %>UserAction extends <%= userActionType %> {
   }
 }
 
-export default <%= actionName %>UserAction;
+export default <%= actionNamePascalCase %>UserAction;
