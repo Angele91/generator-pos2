@@ -38,10 +38,23 @@ module.exports = class extends Generator {
         default: true
       },
       {
+        type: "confirm",
+        name: "generateStory",
+        message: "Should we generate a storybook?",
+        default: true
+      },
+      {
+        type: "input",
+        name: "storyTitle",
+        message: "Story title: ",
+        default: answers => answers.componentName,
+        when: answers => answers.generateStory
+      },
+      {
         type: "input",
         name: "path",
         message: "Path: ",
-        default: "src"
+        default: "src/components"
       },
       {
         type: "input",
@@ -61,6 +74,7 @@ module.exports = class extends Generator {
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
+      this.props.lowercasedPrefix = this.props.prefix.toLowerCase();
     });
   }
 
@@ -73,6 +87,8 @@ module.exports = class extends Generator {
     const indexPath = `${destinationPath}/index.js`;
     const sassFilePath = `${destinationPath}/${this.props.componentName}.scss`;
     const testPath = `${destinationPath}/__test__/${this.props.componentName}.test.jsx`;
+    const storyPath = `${destinationPath}/stories/${this.props.componentName}.stories.jsx`;
+    const storySassPath = `${destinationPath}/stories/${this.props.componentName}Stories.scss`;
 
     this.log(`Creating ${componentPath}`);
     this.fs.copyTpl(
@@ -102,6 +118,21 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath("test.txt"),
         this.destinationPath(testPath),
+        this.props
+      );
+    }
+
+    if (this.props.generateStory) {
+      this.log(`Creating ${storyPath}`);
+      this.fs.copyTpl(
+        this.templatePath("story.txt"),
+        this.destinationPath(storyPath),
+        this.props
+      );
+
+      this.fs.copyTpl(
+        this.templatePath("storysassfile.txt"),
+        this.destinationPath(storySassPath),
         this.props
       );
     }

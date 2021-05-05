@@ -16,7 +16,7 @@ import "./<%= componentName %>.scss";
  */
 const <%= componentName %> = () => {
   return (
-    <div>
+    <div className="<%= lowercasedPrefix %><%= componentName %>-container">
       <p>Hello world!</p>
     </div>
   )

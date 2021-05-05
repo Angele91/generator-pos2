@@ -6,3 +6,7 @@
  * or in the legal folder of this module distribution.
  ************************************************************************************
  */
+
+.<%= lowercasedPrefix %><%= componentName %>-container {
+  background-color: #fff;
+}

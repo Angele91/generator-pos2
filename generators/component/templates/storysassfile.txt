@@ -7,6 +7,6 @@
  ************************************************************************************
  */
 
-import <%= componentName %> from './<%= componentName %>';
-
-export default <%= componentName %>;
+.<%= lowercasedPrefix %><%= componentName %>-storyContainer {
+  background-color: #fff;
+}
