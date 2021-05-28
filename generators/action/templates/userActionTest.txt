@@ -19,7 +19,7 @@ const registerActions = () => {
     javaPackage: '<%= package %>',
     dbPrefix: ['<%= prefix %>']
   });
-  Registry.registerUserAction(UserActionFence(<%= actionNamePascalCase %>));
+  Registry.registerUserAction(UserActionFence(<%= actionNamePascalCase %>UserAction));
 };
 
 const mockFn = jest.fn().mockImplementation(<%= actionName %>);
