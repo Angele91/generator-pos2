@@ -31,13 +31,13 @@ module.exports = class extends Generator {
         type: "input",
         name: "package",
         message: "Module package: ",
-        default: "org.openbravo.core2"
+        default: "org.openbravo.pos2"
       },
       {
         type: "input",
         name: "prefix",
         message: "Module prefix: ",
-        default: "OBC2",
+        default: "OBPOS2",
         transform(val) {
           return val.toUpperCase();
         }
