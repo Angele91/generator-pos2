@@ -7,30 +7,28 @@
  ************************************************************************************
  */
 
-import OB from "org.openbravo.core2/src/core/OB";
-import Registry from "org.openbravo.core2/src/core/Registry";
-import createStoreStories from "org.openbravo.core2/src/core/user-action/__mock__/createStoreStories";
-import UserActionFence from "org.openbravo.core2/src/core/user-action/__mock__/UserActionFence";
-import ConfigurationSet from "org.openbravo.core2/src/core/ConfigurationSet";
-import <%= actionNamePascalCase %>UserAction from "../user-actions/<%= actionNamePascalCase %>UserAction";
-import <%= actionName %> from "../actions/<%= actionName %>";
+import Registry from 'org.openbravo.core2/src/core/Registry';
+import createStoreStories from 'org.openbravo.core2/src/core/user-action/__mock__/createStoreStories';
+import UserActionFence from 'org.openbravo.core2/src/core/user-action/__mock__/UserActionFence';
+import <%= actionNamePascalCase %>UserAction from '../user-actions/<%= actionNamePascalCase %>';
+import <%= actionName %> from '../actions/<%= actionNamePascalCase %>';
 
 const registerActions = () => {
   Registry.reset();
   Registry.setCurrentlyRegisteringModule({
-    javaPackage: "<%= package %>",
-    dbPrefix: ["<%= prefix %>"]
+    javaPackage: '<%= package %>',
+    dbPrefix: ['<%= prefix %>']
   });
-  Registry.registerUserAction(UserActionFence(<%= actionNamePascalCase %>UserAction));
+  Registry.registerUserAction(UserActionFence(<%= actionNamePascalCase %>));
 };
 
 const mockFn = jest.fn().mockImplementation(<%= actionName %>);
 
-describe("<%= actionNamePascalCase %>UserAction", () => {
+describe('<%= actionNamePascalCase %>', () => {
   beforeAll(() => {
     createStoreStories([
       {
-        model: "<%= modelName %>",
+        model: '<%= modelName %>',
         actions: {
           <%= actionName %>: mockFn
         }
@@ -43,8 +41,8 @@ describe("<%= actionNamePascalCase %>UserAction", () => {
     mockFn.mockClear();
   });
 
-  it("should execute the state action", async () => {
-    await Registry.getUserAction("<%= prefix %>_<%= actionNamePascalCase %>").launch();
+  it('should execute the state action', async () => {
+    await Registry.getUserAction('<%= prefix %>_<%= actionNamePascalCase %>').launch();
     expect(mockFn).toHaveBeenCalledTimes(1);
   });
 });

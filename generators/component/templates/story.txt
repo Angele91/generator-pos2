@@ -7,21 +7,23 @@
  ************************************************************************************
  */
 
-import React from "react";
-import { Provider } from "react-redux";
-import { SessionProvider } from "org.openbravo.core2/src/core/SessionContext";
-import LABELS_EN_US from "org.openbravo.core2/src/generated/POS2-labels-en_US.json";
-import Registry from "org.openbravo.core2/src/core/Registry";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { SessionProvider } from 'org.openbravo.core2/src/core/SessionContext';
+import LABELS_EN_US from 'org.openbravo.core2/src/generated/POS2-labels-en_US.json';
+import Registry from 'org.openbravo.core2/src/core/Registry';
+import { addLabels } from 'org.openbravo.core2/src/core/I18N';
+import createStoreStories from "org.openbravo.core2/src/core/user-action/__mock__/createStoreStories";
 import <%= componentName %> from '..';
 import './<%= componentName %>Stories.scss';
 
 const initializeStory = story => {
   Registry.reset();
-  addLabels("en_US", LABELS_EN_US);
+  addLabels('en_US', LABELS_EN_US);
 
   const storyModule = {
-    javaPackage: "<%= package %>",
-    dbPrefix: ["<%= prefix %>"]
+    javaPackage: '<%= package %>',
+    dbPrefix: ['<%= prefix %>']
   };
 
   Registry.setCurrentlyRegisteringModule(storyModule);
@@ -53,9 +55,6 @@ export const SimpleUse = () => {
 };
 
 export default {
-  title: "<%= storyTitle %>",
-  decorators: [
-    story => initializeStory(story),
-    story => withProvider(story)
-  ]
+  title: '<%= storyTitle %>',
+  decorators: [story => initializeStory(story), story => withProvider(story)]
 };

@@ -8,9 +8,9 @@
  */
 
 import deepfreeze from 'deepfreeze';
-import <%= actionName %> from '../actions/<%= actionName %>';
+import <%= actionName %> from '../actions/<%= actionNamePascalCase %>';
 
-const initialState = {  };
+const initialState = {};
 
 describe('<%= actionName %>', () => {
   beforeAll(() => {});

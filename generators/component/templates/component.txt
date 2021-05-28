@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import "./<%= componentName %>.scss";
+import './<%= componentName %>.scss';
 
 /**
  * @name <%= componentName %>
@@ -19,8 +19,8 @@ const <%= componentName %> = () => {
     <div className="<%= lowercasedPrefix %><%= componentName %>-container">
       <p>Hello world!</p>
     </div>
-  )
-}
+  );
+};
 
 
 export default <%= componentName %>;

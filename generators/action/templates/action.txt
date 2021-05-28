@@ -7,12 +7,11 @@
  ************************************************************************************
  */
 
-
 /**
  * @name <%= actionName %>
  * @description <%= description %>
  *
-*/
+ */
 export default function <%= actionName %>(<%= modelName %>, payload) {
   return {
     ...<%= modelName %>

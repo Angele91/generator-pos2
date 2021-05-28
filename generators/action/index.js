@@ -86,10 +86,10 @@ module.exports = class extends Generator {
 
   writing() {
     const destinationPath = this.destinationPath(`${this.props.path}`);
-    const actionPath = `${destinationPath}/actions/${this.props.actionNamePascalCase}UserAction.js`;
-    const userActionPath = `${destinationPath}/user-actions/${this.props.actionName}.js`;
+    const actionPath = `${destinationPath}/actions/${this.props.actionNamePascalCase}.js`;
+    const userActionPath = `${destinationPath}/user-actions/${this.props.actionNamePascalCase}.js`;
     const actionTestPath = `${destinationPath}/__test__/${this.props.actionName}.test.js`;
-    const userActionTestPath = `${destinationPath}/__test__/${this.props.actionNamePascalCase}UserAction.js`;
+    const userActionTestPath = `${destinationPath}/__test__/${this.props.actionNamePascalCase}UserAction.test.js`;
 
     this.log(`Creating ${actionPath}`);
     this.fs.copyTpl(

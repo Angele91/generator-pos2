@@ -14,7 +14,6 @@ import Registry from 'org.openbravo.core2/src/core/Registry';
 import createStoreStories from 'org.openbravo.core2/src/core/user-action/__mock__/createStoreStories';
 import <%= componentName %> from '..';
 
-
 const store = createStoreStories([], {
   UI: { userActions: {} },
   Ticket: {}
@@ -34,7 +33,6 @@ describe('<<%= componentName %>>', () => {
     Registry.setCurrentlyRegisteringModule(null);
   });
 
-
   it('renders without crash', () => {
     const { container } = render(
       <Provider store={store}>
@@ -45,5 +43,4 @@ describe('<<%= componentName %>>', () => {
     );
     expect(container).toBeInTheDocument();
   });
-
-})
+});
